@@ -1,0 +1,33 @@
+def Average(numbers):
+    total = 0
+    count = 0
+
+    for number in numbers:
+        total += number
+        count += 1
+
+    average = total / count
+    return average
+
+def main():
+    # Declare and initialize the array with at least five integers
+    numbers = [-10, -20, -30, -40, -50]
+    
+    # Call the Average function and store the result
+    avg = Average(numbers)
+    
+    # Print out the result
+    print("The average is:", avg)
+
+    # Check if the average is double digits or single digits
+    if avg >= 10:
+        print("Double digits")
+    else:
+        print("Single digits")
+    
+    # Check if the average is negative and print a special message
+    if avg < 0:
+        print("Average value is in the negative")
+
+# Call the main function to execute the program
+main()

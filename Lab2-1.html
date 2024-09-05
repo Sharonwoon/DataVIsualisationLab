@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8"/>
+	<meta name="description"	content="Data Visualisation"/>
+	<meta name="keywords"		  content="HTML, CSS"/>
+	<meta name="author"			  content="Your name here"/>
+
+	<title>Task 2.1 D3 Data Binding</title>
+	<!--Insert description of exercise  -->
+	<script src="http://d3js.org/d3.v7.min.js"></script>
+
+
+</head>
+
+<body>
+
+	<div class="button-container">
+        <button onclick="window.location.href='LandingPage.html'">Landing Page</button>
+        <button onclick="window.location.href='Lab2-2.html'">Lab2-2</button>
+        <button onclick="window.location.href='Lab2-3.html'">Lab2-3</button>
+		<button onclick="window.location.href='Lab2-4.html'">Lab2-4</button>
+    </div>
+
+	<h1>The D3 Journey starts here...</h1>
+	
+	<script>
+	//example from Murray
+
+    var dataset = [14, 5, 26, 23, 9];
+
+		d3.select("body").selectAll("p")
+            .data(dataset)
+            .enter()
+		    .append("p")
+            .style("color", function(d){
+                if (d>10) {
+                    return "red"
+                }
+            })
+		    .text (function(d) 
+            {
+                if(d>10){
+                    return "Warning: NAME watched " + d + " cat videos today." ;
+                }
+                else {
+                    return "NAME watched  " + d + " cat vieos today.";
+                }
+            });
+
+            console.log(d3.selectAll("p"));
+
+	</script>
+
+	<br>
+	<bf>
+	<footer style="color:grey">COS30045 Data Visualisation<br>
+		Joe Bloggs</footer>
+
+</body>
+</html>

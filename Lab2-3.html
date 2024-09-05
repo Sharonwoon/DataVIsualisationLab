@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8"/>
+	<meta name="description"	content="Data Visualisation"/>
+	<meta name="keywords"		  content="HTML, CSS"/>
+	<meta name="author"			  content="Your name here"/>
+
+	<title>Task 2.1 D3 Data Binding</title>
+	<!--Insert description of exercise  -->
+	<script src="http://d3js.org/d3.v7.min.js"></script>
+
+</head>
+<body>
+
+    <div class="button-container">
+        <button onclick="window.location.href='LandingPage.html'">Landing Page</button>
+        <button onclick="window.location.href='Lab2-1.html'">Lab2-1</button>
+        <button onclick="window.location.href='Lab2-2.html'">Lab2-2</button>
+        <button onclick="window.location.href='Lab2-4.html'">Lab2-4</button>
+    </div>
+
+	<h1>Drawing with Data</h1>
+    <h2>Author: Woon Xin Ying</h2>
+	
+	<script>
+	//example from Murray
+    var w = 600;
+    var h = 100;
+
+	var svg= d3.select("body")
+		        .append("svg")
+                .attr("width", w)
+                .attr("height", h)
+    
+    var dataset = [
+                    [5, 20],
+                    [480, 90],
+                    [250, 50],
+                    [100, 33],
+                    [330, 95],
+                    [410, 12],
+                    [475, 44],
+                    [25, 67],
+                    [85, 21],
+                    [220, 88]
+                ];
+    
+    svg.selectAll("circle")
+        .data(dataset)
+        .enter()
+        .append("circle")
+        .attr("cx", function(d, i) {
+            return d[0];
+        })
+        .attr("cy", function(d){
+            return d[1]
+        })
+        .attr("r", 5)
+        .attr("fill", "rgb(49, 145, 0)");
+
+    svg.selectAll ("text")
+        .data(dataset)
+        .enter()
+        .append("text")
+        .text(function (d) {
+            return d[0] + "." +d[1];
+        })
+        .attr("x", function (d){
+            return d[0] +10
+        })
+        .attr("y",function(d){
+            return d[1]-2;
+        })
+           
+	</script>
+
+	<br>
+	<bf>
+    
+	<footer style="color:grey">COS30045 Data Visualisation<br>
+		Joe Bloggs</footer>
+
+</body>
+</html>
