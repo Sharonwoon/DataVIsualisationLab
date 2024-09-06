@@ -1,21 +1,30 @@
-body
-{
-    background-image:url("background.jpg") ;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    color:rgb(36, 35, 33);
+h1 {
+    text-align: center;  
+}
+
+body {
+    background-image: url("seaside.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-family: 'Lucida Sans', Geneva, Verdana, sans-serif;
+    color: rgb(36, 35, 33);
     text-shadow: 2px 2px 4px #000000;
 }
 
-h2
-{
-    color:whitesmoke;
+h2 {
+    color: whitesmoke;
     text-shadow: 1px 1px 2px black, 0 0 25px pink, 0 0 5px palevioletred;
+    text-align: center;
 }
 
-a
-{
-    line-height: 1.8;
-    color:darkblue;
-    
+.links {
+    text-align: center; /* Center the links container */
+}
 
+a {
+    display: inline-block; /* Display links on the same line */
+    margin: 0 10px; /* Add some space between the links */
+    line-height: 1.8;
+    color: darkblue;
+    text-align: center;
 }

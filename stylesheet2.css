@@ -1,17 +1,60 @@
 body
 {
-    background: rgba(0, 128, 0, 0.3);
+    background: rgba(133, 104, 63, 0.3);
     color: black;
+    
 }
 
 h1
 {
-    font-family: "Lucida Console", "Courier New", monospace;
-    text-shadow: 2px 2px burlywood;
+    font-family: "Lucida Console", "Courier New", monospace;    
+    color: white;
+    text-shadow: 2px 2px 5px rgb(255, 0, 0);
+}
+
+.button {
+    background-color: #04AA6D; /* Green */
+    border: none;
+    color: white;
+    padding: 20px 40px; /* Increased padding for larger size */
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 24px; /* Increased font size */
+    margin: 4px 2px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    width: 150px; /* Increased width */
 }
 
 
-    .button1 {background-color: #04AA6D;} /* Green */
-    .button2 {background-color: #008CBA;} /* Blue */
-    .button3 {background-color: #f44336;} /* Red */
+    .button1 {
+        background-color: white; 
+        color: black; 
+        border: 2px solid #f44336;
+      }
+      
+      .button1:hover {
+        background-color: #f44336;
+        color: white;
+      }
+      
+      .button2 {
+        background-color: white;
+        color: black;
+        border: 2px solid #000000;
+      }
+      
+      .button2:hover {background-color: #ce8d8d;}
+      
+      .button3 {
+        background-color: white;
+        color: black;
+        border: 2px solid #555555;
+      }
+      
+      .button3:hover {
+        background-color: #555555;
+        color: white;
+      }
    
