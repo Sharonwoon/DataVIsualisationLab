@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<style>
+/* Container for background image */
+.container {
+  position: relative;
+  width: 100vw; /* Full width of the viewport */
+  height: 100vh; /* Full height of the viewport */
+  background-image: url('seaside.jpg'); /* Set the background image */
+  background-repeat: no-repeat;
+  background-size: cover; /* Ensure the image covers the whole screen */
+  background-position: center; /* Center the image */
+}
+
+/* Center the dropdown (button and content) within the background image */
+.dropdown {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: inline-block;
+  text-align: center; /* Center the text inside the dropdown */
+}
+
+/* Button style */
+.dropdown .btn {
+  background-color: #f1f1f1;
+  color: black;
+  font-size: 16px;
+  padding: 16px 30px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  text-align: center;
+}
+
+/* Button hover effect */
+.dropdown .btn:hover {
+  background-color: rgb(7, 72, 109);
+  color: white;
+}
+
+/* Dropdown content */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  top: 100%; /* Align it right below the button */
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: white;
+  min-width: 150px;
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  border-radius: 5px;
+  text-align: center;
+}
+
+/* Dropdown links */
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+/* Change background color on hover */
+.dropdown-content a:hover {
+  background-color: #ddd;
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+  <div class="dropdown">
+    <button class="btn" onclick="toggleDropdown()">CLICK ME TO VIEW THE LAB</button>
+    <div id="myDropdown" class="dropdown-content">
+      <a href="lab1-1.html">Lab1-1</a>
+      <a href="lab1-2.html">Lab1-2</a>
+      <a href="lab1-3.html">Lab1-3</a>
+    </div>
+  </div>
+</div>
+
+<script>
+function toggleDropdown() {
+  var dropdown = document.getElementById("myDropdown");
+  if (dropdown.style.display === "block") {
+    dropdown.style.display = "none";
+  } else {
+    dropdown.style.display = "block";
+  }
+}
+
+// Close the dropdown if clicked outside
+window.onclick = function(event) {
+  if (!event.target.matches('.btn')) {
+    var dropdowns = document.getElementsByClassName("dropdown-content");
+    for (var i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.style.display === "block") {
+        openDropdown.style.display = "none";
+      }
+    }
+  }
+}
+</script>
+
+</body>
+</html>

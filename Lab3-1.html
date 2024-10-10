@@ -17,9 +17,7 @@
 
     <div class="topnav">
 		<a href='index.html'>Main Page</a>
-		<a href='Lab2-1.html'>Lab2-1</a>
-		<a href='Lab2-2.html'>Lab2-2</a>
-        <a href='Lab2-4.html'>Lab2-4</a>
+		<a href='Lab3-2.html'>Lab3-2</a>
 		
 		<!-- Dropdown -->
 		<div class="dropdown">
@@ -117,67 +115,78 @@
 			}
 		}
     </style>
+<body>
 
-	<h1>Drawing with Data</h1>
+    <h1>Drawing with Data - Scatter Plot</h1>
     <h2>Author: Woon Xin Ying</h2>
-	
-	<script>
-	//example from Murray
-    var w = 600;
-    var h = 100;
-
-	var svg= d3.select("body")
-		        .append("svg")
-                .attr("width", w)
-                .attr("height", h)
     
-    var dataset = [
-                    [5, 20],
-                    [480, 90],
-                    [250, 50],
-                    [100, 33],
-                    [330, 95],
-                    [410, 12],
-                    [475, 44],
-                    [25, 67],
-                    [85, 21],
-                    [220, 88]
-                ];
-    
-    svg.selectAll("circle")
-        .data(dataset)
-        .enter()
-        .append("circle")
-        .attr("cx", function(d, i) {
-            return d[0];
-        })
-        .attr("cy", function(d){
-            return d[1]
-        })
-        .attr("r", 5)
-        .attr("fill", "rgb(49, 145, 0)");
+    <script>
+        var w = 800;
+        var h = 250;
+        var padding = 80;
 
-    svg.selectAll ("text")
-        .data(dataset)
-        .enter()
-        .append("text")
-        .text(function (d) {
-            return d[0] + "." +d[1];
-        })
-        .attr("x", function (d){
-            return d[0] +10
-        })
-        .attr("y",function(d){
-            return d[1]-2;
-        })
-           
-	</script>
+        var dataset = [
+            [5, 20],
+            [500, 90],
+            [250, 50],
+            [100, 33],
+            [330, 95],
+            [410, 12],
+            [475, 44],
+            [25, 67],
+            [85, 21],
+            [220, 88]
+        ];
 
-	<br>
-	<bf>
-    
-        <footer class="w3-panel w3-leftbar w3-border-red w3-pale-red">COS30045 Data Visualisation<br>
-            Woon Xin Ying </footer>
+        var svg = d3.select("body")
+            .append("svg")
+            .attr("width", w)
+            .attr("height", h);
+
+        var xScale = d3.scaleLinear()
+            .domain([d3.min(dataset, function(d) { return d[0]; }),
+                     d3.max(dataset, function(d) { return d[0]; })])
+            .range([padding, w - padding]);
+
+        var yScale = d3.scaleLinear()
+            .domain([d3.min(dataset, function(d) { return d[1]; }),
+                     d3.max(dataset, function(d) { return d[1]; })])
+            .range([h - padding, padding]);
+
+        svg.selectAll("circle")
+            .data(dataset)
+            .enter()
+            .append("circle")
+            .attr("cx", function(d, i) {
+                return xScale(d[0]);
+            })
+            .attr("cy", function(d) {
+                return yScale(d[1]);
+            })
+            .attr("r", 7)
+              // fixed radius for all circles
+            .attr("fill" , function(d) {
+                return d[0] === 500 ? "red" : "rgb(49,145,0)";  // red color for the point at (480,90)
+            });
+
+        svg.selectAll("text")
+            .data(dataset)
+            .enter()
+            .append("text")
+            .text(function(d) {
+                return d[0] + " , " + d[1];  // display the x, y coordinates
+            })
+            .attr("x", function(d) {
+                return xScale(d[0]) + 10;  // position the text slightly right of each circle
+            })
+            .attr("y", function(d) {
+                return yScale(d[1]) - (-6);  // position the text slightly above each circle
+            })
+            .attr("fill", "green");
+        
+    </script>
+
+    <footer style="color:grey">COS30045 Data Visualisation<br>Joe Bloggs</footer>
 
 </body>
 </html>

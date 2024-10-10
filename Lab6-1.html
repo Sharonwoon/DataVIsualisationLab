@@ -7,7 +7,7 @@
 	<meta name="keywords"		  content="HTML, CSS"/>
 	<meta name="author"			  content="Your name here"/>
 
-	<title>Task 2.1 D3 Data Binding</title>
+	<title>LAB 6.1 Bar Chart with Mouse Over</title>
 	<!--Insert description of exercise  -->
 	<script src="http://d3js.org/d3.v7.min.js"></script>
     <link rel="stylesheet" href="http://www.w3schools.com/w3css/4/w3.css">
@@ -15,32 +15,26 @@
 </head>
 <body>
 
-	<div class="topnav">
+    <div class="topnav">
 		<a href='index.html'>Main Page</a>
-		<a href='Lab2-1.html'>Lab2-1</a>
-		<a href='Lab2-2.html'>Lab2-2</a>
-        <a href='Lab2-3.html'>Lab2-3</a>
-		
+		<a href='Lab6-2.html'>Lab6-2</a>
+
 		<!-- Dropdown -->
 		<div class="dropdown">
 			<button class="dropbtn">More Lab
 				<i class="fa fa-caret-down"></i>
 			</button>
 			<div class="dropdown-content">
-				<a href= 'Lab1.html'>Lab 1</a>
+				<a href="Lab1.html">Lab 1</a>
 				<a href= 'Lab2.html'>Lab 2</a>
-				<a href='Lab3.html'>Lab 3</a>
+				<a href= 'Lab3.html'>Lab 3</a>
 				<a href='Lab5.html'>Lab 5</a>
-				<a href="Lab6.html">Lab 6</a>
+				<a href='Lab6.html'>Lab 6</a>
 			</div>
 		</div>
 	</div>
 
     <style>
-        body{
-            background-color: beige;
-        }
-        
         .topnav {
 			overflow: hidden;
 			background-color: #533f3f;
@@ -119,16 +113,24 @@
 		}
     </style>
 
-	<h1>Drawing with Data</h1>
+<article class="content">
+    <h1>Bar Chart with Mouse Hover</h1>
     <h2>Author: Woon Xin Ying</h2>
 
-    <p id="chart"></p>
-    <script src="Task_2.4.js"></script>
+    <div class="button-container">
+        <button id="Add">Add</button>
+        <button id="Remove">Remove</button>
+    </div>
 
-    <br>
-    <bf>
-        <footer class="w3-panel w3-leftbar w3-border-red w3-pale-red">COS30045 Data Visualisation<br>
-        Woon Xin Ying </footer>
-    
+	<br>
+
+    <article class="content"></article>
+
+  <!-- Script for chart generation -->
+  <script src="Task6.1.js"></script>
+    <bf><footer class="w3-panel w3-leftbar w3-border-red w3-pale-red">COS30045 Data Visualisation<br>
+		Woon Xin Ying</footer></bf>
 </body>
 </html>
+
+	
