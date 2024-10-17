@@ -30,7 +30,7 @@ svg1.append("g")
 svg1.selectAll("rect")
     .data(dataset)
     .enter()
-    .append("rect")
+    .append("rect") 
     .attr("x", function(d, i) {
         return xScale(i);
     })

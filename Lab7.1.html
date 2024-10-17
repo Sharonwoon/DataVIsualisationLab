@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8"/>
+	<meta name="description"	content="Data Visualisation"/>
+	<meta name="keywords"		  content="HTML, CSS"/>
+	<meta name="author"			  content="Your name here"/>
+
+	<title>LAB 7.1 D3 Line and Area Charts</title>
+	<!--Insert description of exercise  -->
+	<script src="http://d3js.org/d3.v7.min.js"></script>
+    <link rel="stylesheet" href="http://www.w3schools.com/w3css/4/w3.css">
+
+</head>
+<body>
+
+    <div class="topnav">
+		<a href='index.html'>Main Page</a>
+		<a href='Lab6-1.html'>Lab6-1</a>
+		
+		<!-- Dropdown -->
+		<div class="dropdown">
+			<button class="dropbtn">More Lab
+				<i class="fa fa-caret-down"></i>
+			</button>
+			<div class="dropdown-content">
+				<a href="Lab1.html">Lab 1</a>
+				<a href= 'Lab2.html'>Lab 2</a>
+				<a href= 'Lab3.html'>Lab 3</a>
+				<a href='Lab5.html'>Lab 5</a>
+				<a href='Lab6.html'>Lab 6</a>
+			</div>
+		</div>
+	</div>
+
+    <style>
+
+        .line{
+            fill:none;
+            stroke:steelblue;
+            stroke-width: 2;
+        }
+
+        .topnav {
+			overflow: hidden;
+			background-color: #533f3f;
+		}
+
+		/* Style the topnav links */
+		.topnav a {
+			float: left;
+			display: block;
+			color: #f2f2f2;
+			text-align: center;
+			padding: 14px 16px;
+			text-decoration: none;
+		}
+
+		/* Dropdown container */
+		.dropdown {
+			float: right; /* Float the dropdown to the right */
+			overflow: hidden;
+		}
+
+		/* Dropdown button */
+		.dropdown .dropbtn {
+			cursor: pointer;
+			font-size: 16px;
+			border: none;
+			outline: none;
+			color: white;
+			padding: 14px 16px;
+			background-color: inherit;
+			font-family: inherit;
+			margin: 0;
+		}
+
+		/* Dropdown content (hidden by default) */
+		.dropdown-content {
+			display: none;
+			position: absolute;
+			background-color: #f9f9f9;
+			min-width: 160px;
+			box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+			z-index: 1;
+		}
+
+		/* Links inside the dropdown */
+		.dropdown-content a {
+			float: none;
+			color: black;
+			padding: 12px 16px;
+			text-decoration: none;
+			display: block;
+			text-align: left;
+		}
+
+		/* Show the dropdown on hover */
+		.dropdown:hover .dropdown-content {
+			display: block;
+		}
+
+		/* Change color of dropdown links on hover */
+		.dropdown-content a:hover {
+			background-color: #ddd;
+		}
+
+		/* Add background color to navbar links on hover */
+		.topnav a:hover, .dropdown:hover .dropbtn {
+			background-color: #ddd;
+			color: black;
+		}
+
+		@media screen and (max-width: 400px) {
+			.topnav a {
+				float: none;
+				width: 100%;
+			}
+		}
+    </style>
+
+<article class="content">
+    <h1>Number of Umemployed in Australia</h1>
+    <h2>Author: Woon Xin Ying</h2>
+
+    <article class="content"></article>
+    <div id="chart"></div>
+
+  <!-- Script for chart generation -->
+  <script src="Task7.1.js"></script>
+  <script src="Unemployment_78-95.csv"></script>
+    <bf><footer class="w3-panel w3-leftbar w3-border-red w3-pale-red">COS30045 Data Visualisation<br>
+		Woon Xin Ying</footer></bf>
+</body>
+</html>
+
+	
