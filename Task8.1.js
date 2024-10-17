@@ -17,7 +17,7 @@ function init() {
                 .attr("height",h)
                 .attr("fill","steelblue");
 
-    d3.json("https://raw.githubusercontent.com/Sharonwoon/DataVIsualisationLab/main/LGA_VIC.json").then(function(json) {
+    d3.json("https://cors-anywhere.herokuapp.com/https://raw.githubusercontent.com/Sharonwoon/DataVIsualisationLab/main/LGA_VIC.json").then(function(json) {
 
         svg.selectAll("path")
             .data(json.features)
