@@ -13,11 +13,12 @@ var h = 300;
 // Define the color scale for the fruit types
 var colors = d3.scaleOrdinal()
                .domain(["apples", "oranges", "grapes"])
-               .range(["#2ca02c", "#ff7f0e", "#1f77b4"]);
+               .range(["#2ca02c", "#ff7f0e", "#1f77b4"]); // Green, Orange, Blue
 
 // Set up stack method (ensure the order of stacking is apples -> oranges -> grapes)
 var stack = d3.stack()
-              .keys(["apples", "oranges", "grapes"]);
+              .keys(["apples", "oranges", "grapes"])
+              .order(d3.stackOrderDescending);
 
 // Data, stacked
 var series = stack(dataset);
@@ -38,14 +39,15 @@ var yScale = d3.scaleLinear()
 // Create the SVG container
 var svg = d3.select("body")
             .append("svg")
-            .attr("width", w)
+            .attr("width", w + 100) // Extra space for the legend
             .attr("height", h);
 
 // Add a group for each row of data, with a color for each fruit type
-var groups = svg.selectAll("g")
+var groups = svg.selectAll("g.layer")
                 .data(series)
                 .enter()
                 .append("g")
+                .attr("class", "layer")
                 .style("fill", function(d) {
                     return colors(d.key); // Match color to fruit type
                 });
@@ -65,3 +67,35 @@ groups.selectAll("rect")
           return yScale(d[0]) - yScale(d[1]);  // Calculate height of the stack
       })
       .attr("width", xScale.bandwidth());  // Set width based on scale
+
+// Legend labels
+var legendLabels = ["Green", "Orange", "Blue"];
+
+// Create legend
+var legend = svg.selectAll(".legend")
+    .data(legendLabels)
+    .enter()
+    .append("g")
+    .attr("class", "legend")
+    .attr("transform", function(d, i) {
+        return "translate(" + (w + 20) + "," + (i * 20 + 20) + ")"; // Position each legend item
+    });
+
+// Append circles to the legend
+legend.append("circle")
+    .attr("cx", 0)
+    .attr("cy", 0)
+    .attr("r", 7)
+    .style("fill", function(d, i) {
+        return colors(["apples", "oranges", "grapes"][i]);
+    });
+
+// Append labels to the legend
+legend.append("text")
+    .attr("x", 15)
+    .attr("y", 4)
+    .text(function(d) {
+        return d;
+    })
+    .style("font-size", "12px")
+    .attr("alignment-baseline", "middle");
